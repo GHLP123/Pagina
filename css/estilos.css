@@ -22,12 +22,14 @@ a:hover{
 	color: white;
 }
 
-.comentario .limite-comentario p.red-envio{
+.comentario .limite-comentario div.red-envio{
 	background: rgba(20, 20, 20, 0.2);
 	font-size: 15px;
 	padding: 3px 30px 3px 30px;
 	color: white;
 	text-align: right;
+	border-radius: 10px;
+	text-shadow: 2px 2px 0px brown;
 }
 
 .preguntas-comentarios .users p.autor{
