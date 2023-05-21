@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="// Etiquetas">
+	<meta name="description" content="// Descripcion">
+	<link rel="stylesheet" href="./css/estilos.css">
+	<link rel="shorcut icon" href="img/ui/ui_text_2_hd.png">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+	<title>Magic Battle G1</title>
+</head>
+<body>
+	<header>
+		<div class="page_top importNum1">
+			<div class="user">
+				<button>// BY: GHLP123 //</button>
+			</div>
+			<div class="import_objetos">
+				<div class="div_user">
+					<img src="img/obj/dinero.png">
+					<p>Dinero: <span id="text_prnc_dinero">???</span></p>
+				</div>
+				<div class="div_user">
+					<img src="img/obj/piedra_magic.png">
+					<p>Piedras Mágicas: <span id="text_prnc_piedra_magic">???</span></p>
+				</div>
+				<div class="div_user">
+					<img src="img/obj/Ticket.png">
+					<p>Tickets: <span id="text_prnc_ticket">???</span></p>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div id="tapar"></div>
+		<div class="page_princ_all importNum0">
+			<div class="support_inicio">
+
+				<div class="estilo_btn_inicio">
+					<h1 onclick="sesion_f()">Iniciar Sesión</h1>
+				</div>
+
+				<div class="estilo_btn_inicio">
+					<h1 onclick="mode_his()">Modo Historia</h1>
+				</div>
+
+				<div class="estilo_btn_inicio">
+					<h1 onclick="inventario()">Inventario</h1>
+				</div>
+
+				<div class="estilo_btn_inicio">
+					<h1 onclick="view_dayli()">Recompenza diaria</h1>
+				</div>
+
+				<div class="estilo_btn_inicio">
+					<h1 onclick="ruleta()">Ruleta de la Suerte</h1>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="page_princ_all importNum3" id="mode_history">
+			<div class="my_playlist">
+				<div class="bar_his">
+					<div></div>
+					<div class="my_cerrar">
+						<img src="./img/ui/cerrar.png" onclick="c_mode_his();">
+					</div>
+				</div>
+
+				<div class="my_list">
+					<div class="my_mode_his" id="createdAllLevels">
+					</div>
+
+					<div class="my_preview">
+						<div class="my_artist">
+							<div class="center_all_x">
+								<h1 id="myTitleMusic">Titulo: ???</h1>
+							</div>
+							<div class="center_all_x">
+								<p id="myArtistMusic">De: ???</p>
+							</div>
+							<div class="center_all_x">
+								<div class="support_img">
+									<img src="" id="myImageMusic">
+									<img src="./img/ui/disk.png">
+								</div>
+							</div>
+							<div class="center_all_x">
+								<div class="cube"></div>
+							</div>
+							<div class="center_all_x">
+								<button onclick="playGameMusic()" id="myButtonPlayMusic">Jugar</button>
+							</div>
+						</div>
+
+						<div class="my_player"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page_princ_all importNum3" id="myGameMusic">
+			<div class="game_music_1">
+				<div class="game_music_sections_pausa">
+					<div class="letra_music_game_pausa">
+						<h1>II</h1>
+					</div>
+				</div>
+
+				<div class="game_music_sections" id="pressInNum1">
+					<object class="barra_music_game" id="pressBarraNum1"></object>
+					<div class="luz-barra luz-roja" id="myLuzNum1"></div>
+					<div class="letra_music_game">
+						<h1>A</h1>
+					</div>
+				</div>
+				<div class="game_music_sections" id="pressInNum2">
+					<div class="luz-barra luz-naranja" id="myLuzNum2"></div>
+					<object class="barra_music_game" id="pressBarraNum2"></object>
+					<div class="letra_music_game">
+						<h1>S</h1>
+					</div>
+				</div>
+				<div class="game_music_sections" id="pressInNum3">
+					<div class="luz-barra luz-dorada" id="myLuzNum3"></div>
+					<object class="barra_music_game" id="pressBarraNum3"></object>
+					<div class="letra_music_game">
+						<h1>D</h1>
+					</div>
+				</div>
+				<div class="game_music_sections" id="pressInNum4">
+					<div class="luz-barra luz-verde" id="myLuzNum4"></div>
+					<object class="barra_music_game" id="pressBarraNum4"></object>
+					<div class="letra_music_game">
+						<h1>J</h1>
+					</div>
+				</div>
+				<div class="game_music_sections" id="pressInNum5">
+					<div class="luz-barra luz-cian" id="myLuzNum5"></div>
+					<object class="barra_music_game" id="pressBarraNum5"></object>
+					<div class="letra_music_game">
+						<h1>K</h1>
+					</div>
+				</div>
+				<div class="game_music_sections" id="pressInNum6">
+					<div class="luz-barra luz-rosada" id="myLuzNum6"></div>
+					<object class="barra_music_game" id="pressBarraNum6"></object>
+					<div class="letra_music_game">
+						<h1>L</h1>
+					</div>
+				</div>
+
+				<div class="game_music_sections_pausa">
+					<div class="letra_music_game_pausa" onclick="closeWindow('myGameMusic')">
+						<h1>X</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page_princ_all importNum2" id="recomp_diaria">
+			<div class="support_inicio_ssn">
+
+				<div class="inicio_ssn">
+					<div class="text_ssn">
+						<div class="msj_sect">
+							<h1>Inicio diario</h1>
+							<p>Dias iniciados: ???</p>
+						</div>
+
+						<div class="msj_sect_alt">
+							<p onclick="c_view_dayli()">X</p>
+							<p>?</p>
+						</div>
+						
+					</div>
+
+					<div class="rec_ssn">
+
+						<div class="recomp_ssn calidad_basic">
+							<p>???</p>
+						</div>
+						<div class="recomp_ssn calidad_eficiente">
+							<p>???</p>
+						</div>
+						<div class="recomp_ssn calidad_eficiente">
+							<p>???</p>
+						</div>
+						<div class="recomp_ssn calidad_eficiente">
+							<p>???</p>
+						</div>
+
+						<div class="recomp_ssn calidad_normal">
+							<p>???</p>
+						</div>
+						<div class="recomp_ssn calidad_normal">
+							<p>???</p>
+						</div>
+						<div class="recomp_ssn calidad_buena">
+							<p>???</p>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+		<div class="page_princ_all importNum2" id="gacha_ruleta">
+			<div class="support_ruleta">
+				
+				<div class="sep_porc">
+					<div class="barra_rul">
+						<div class="cent_rul_c">
+							<h1 onclick="c_ruleta()">X</h1>
+						</div>
+					</div>
+					<div class="cont_rul">
+						<div class="div_70_porc_rul">
+							<div class="rul_st_1">
+								<div class="my_token">
+									<img src="./img/obj/ticket.png">
+									<div class="center_all_y">
+										<p>Tickets Disponibles: <span id="mys_tickets">???</span></p>
+									</div>
+								</div>
+								<div class="center_all_y">
+									<h1>Ruleta de la suerte:</h1>
+								</div>
+							</div>
+							<div class="what_info_rulet">
+								<div class="text_and_img_rulet">
+									<div class="text_rulet">
+										<h2>La ruleta contiene lo siguiente</h2>
+									</div>
+									<div class="section_img_all_rulet">
+										
+										<div class="now_rulet" id="1raRuletaPre">
+											
+											<!--- ¿Que se puede ganar? --->
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div>
+								<button onclick="oneGiroFun()">1 Giro</button>
+								<button onclick="allGirosFun()">10 Giros</button>
+							</div>
+						</div>
+						<div class="div_25_porc_rul">
+							<div>
+								<div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="page_princ_all importNum2" id="rcmpz_rulet">
+			<div class="support_rcmpz_rulet">
+				
+				<div class="contenedor_rcmpz">
+					<div class="all_rcmpz">
+						<div class="rcmpz_block">
+							<div class="img_rcmpz" id="boxObt">
+								
+								<!--- Obtenido --->
+
+							</div>
+						</div>
+						<div class="obt_rcmpz">
+							<button id="cerrarTime" onclick="c_reclamar()">Reclamar</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="page_princ_all importNum2" id="sesion">
+			<div class="support_sesion">
+				
+				<div class="selc_sesion">
+					<div class="selc_cuenta" id="scc_1">
+
+						<h1 onclick="crear_c()">Crear cuenta</h1>
+
+						<h1 onclick="iniciar_c()">Iniciar sesión</h1>
+
+						<h1><a href="">Correo de soporte</a></h1>
+
+						<h1 onclick="c_sesion_f()">Cerrar</h1>
+
+					</div>
+
+					<div class="selc_cuenta" id="scc_2">
+
+						<form>
+							<div class="escritura">
+								<p>Nombre de Jugador</p>
+								<input type="text" name="nmbr" required=" ">
+							</div>
+
+							<div class="escritura">
+								<p>Correo</p>
+								<input type="text" name="crre" required=" ">
+							</div>
+
+							<div class="escritura">
+								<p>Confirmar Correo</p>
+								<input type="text" name="crre_cnf" required=" ">
+							</div>
+
+							<div class="escritura">
+								<p>Contraseña</p>
+								<input type="text" name="psswrd" required=" ">
+							</div>
+
+							<div class="escritura">
+								<p>Confirmar contraseña</p>
+								<input type="text" name="psswrd_cnf" required=" ">
+							</div>
+
+							<div class="botones_sesion">
+								<button>Confirmar</button>
+								<button onclick="c_crear_c()">Salir</button>
+							</div>
+						</form>
+
+					</div>
+
+					<div class="selc_cuenta" id="scc_3">
+						<form>
+							<div class="escritura">
+								<p>Correo</p>
+								<input type="text" name="ssn_crre" required=" ">
+							</div>
+
+							<div class="escritura">
+								<p>Contraseña</p>
+								<input type="text" name="ssn_psswrd" required=" ">
+							</div>
+
+							<div class="botones_sesion">
+								<button>Confirmar</button>
+								<button onclick="c_iniciar_c()">Salir</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="page_princ_all importNum2" id="invent">
+			<div class="support_inventario">
+
+				<div class="div_29_porc">
+
+					<div class="support_29_porc">
+						<h1 onclick="dis_obj()">Objetos</h1>
+
+						<h1 onclick="dis_per()">Personajes</h1>
+
+						<h1 onclick="dis_atu()">Atuendos</h1>
+
+						<h1 onclick="c_inventario()">Cerrar</h1>
+					</div>
+
+					<div class="support_29_porc">
+						<h1>Vista Previa</h1>
+
+						<input type="color">
+
+						<div class="vista_prev">
+							<img id="img_p">
+						</div>
+
+						<h2 id="personalizar" onclick="mjrs()">Personalizar</h2>
+					</div>
+				</div>
+
+				<div class="div_70_porc">
+					<div class="space space_display_obj">
+						<div class="barra_space">
+							<div class="cent_space">
+								<i onclick="view_all_obj()">Ver todos los Objetos</i>
+							</div>
+						</div>
+
+						<div class="my_p_section" id="obtObjBox">
+							<!--- Objetos --->
+						</div>
+					</div>
+
+					<div class="space space_display_p">
+						<div class="barra_space">
+							<div class="cent_space">
+								<i onclick="view_all_p()">Ver todos los Personajes</i>
+							</div>
+						</div>
+
+						<div class="my_p_section" id="obtPerBox">
+							<!--- Personajes --->
+						</div>
+
+					</div>
+
+					<div class="space space_display_atu">
+						<div class="barra_space">
+							<div class="cent_space">
+								<i>Ver todos los Atuendos</i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="page_princ_all importNum2" id="all_obj_info">
+			<div class="all_p_div">
+				<div class="section_all_p">
+					<div class="barra_all_p">
+						<h1 onclick="c_view_all_obj()">X</h1>
+					</div>
+					<div class="section_p_info" id="boxSectionObj">
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page_princ_all importNum2" id="all_p_info">
+			<div class="all_p_div">
+				<div class="section_all_p">
+					<div class="barra_all_p">
+						<h1 onclick="c_view_all_p()">X</h1>
+					</div>
+					<div class="section_p_info" id="boxSectionPer">
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page_princ_2 importNum2">
+
+			<div class="page_spprt">
+			
+				<div class="support_dialog">
+
+					<div class="ttl_mjr">
+						<h1 id="nmbr_atb_text">nombre_$atributo</h1>
+						<p class="dinero_text">$???</p>
+						<p id="prc_mjr">$???</p>
+					</div>
+
+					<div class="what_mjr">
+						<p id="ant_nv">atributo</p>
+
+						<p id="flecha">⇾</p>
+						
+						<p id="nue_nv">atributo mejora</p>
+					</div>
+
+					<div class="what_mjr">
+						<p id="nivel_mjr">Nivel: ??</p>
+					</div>
+
+					<div class="btn_mjr">
+						<button onclick="c_atb_m()">Cerrar</button>
+						<button id="mjr_atb_1">Mejorar</button>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="page_princ_all importNum3" id="mejora_p">
+			<div class="div_support">
+				<div class="div_26_porc">
+					<div class="support_atb">
+						<div class="atb_info" id="vd_mjr">
+							<h1>Vida</h1>
+							<p id="vida_text">???</p>
+						</div>
+
+						<div class="atb_info">
+							<h1>Probabilidad Critica</h1>
+							<p id="prob_crit_text">???%</p>
+						</div>
+
+						<div class="atb_info">
+							<h1>Amplificador de Daño</h1>
+							<p id="ampl_crit_text">Daño x ???</p>
+						</div>
+
+						<div class="atb_info">
+							<h1>Probabilidad de +Energy</h1>
+							<p id="prob_energy_text">???%</p>
+						</div>
+
+						<div class="atb_info">
+							<h1>+Energy</h1>
+							<p id="energy_mas_text">+??? pts.</p>
+						</div>
+
+						<div class="atb_info">
+							<h1>Probabilidad de Escudo</h1>
+							<p id="prob_escudo_text">???%</p>
+						</div>
+
+						<div class="atb_info">
+							<h1>Reducción de daño Escudo</h1>
+							<p id="redu_escudo_text">???% pts.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="div_40_porc">
+					<div class="text_nomb_p_2">
+						<p id="nmbr_pers_text">Nombre_$personaje</p>
+						<p id="edad_pers_text">Edad_$personaje</p>
+					</div>
+					<div class="text_nomb_p">
+						<img class="imagen_m" id="imagenMejora">
+					</div>
+					<div class="text_nomb_p_2">
+						<p>Selecione una opción</p>
+						<button onclick="c_mjrs()">Salir</button>
+					</div>
+				</div>
+
+				<div class="div_33_porc">
+					<div class="support_hab">
+						<div class="acomode_hab">
+
+							<div class="info_hab">
+								<div class="div_30_porc">
+									<img src="img/personajes/hab/hab_2.png">
+								</div>
+								<div class="div_70_porc">
+									<h1>Escudo</h1>
+									<p>Descripción de habilidad</p>
+								</div>
+							</div>
+
+							<div class="info_hab">
+								<div class="div_30_porc">
+									<img src="img/personajes/hab/hab_2.png">
+								</div>
+								<div class="div_70_porc">
+									<h1>Ataque básico</h1>
+									<p>Descripción de habilidad</p>
+								</div>
+							</div>
+
+							<div class="info_hab">
+								<div class="div_30_porc">
+									<img src="img/personajes/hab/hab_2.png">
+								</div>
+								<div class="div_70_porc">
+									<h1>Habilidad</h1>
+									<p>Descripción de habilidad</p>
+								</div>
+							</div>
+
+							<div class="info_hab">
+								<div class="div_30_porc">
+									<img src="img/personajes/hab/hab_2.png">
+								</div>
+								<div class="div_70_porc">
+									<h1>Ultimate</h1>
+									<p>Descripción de habilidad</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		
+	</footer>
+</body>
+</html>
+<script type="text/javascript" src="./js/java.js"></script>
+<script type="text/javascript" src="./js/prsnjs.js"></script>
+<script type="text/javascript" src="./js/atbs.js"></script>
+<script type="text/javascript" src="./js/obj.js"></script>
+<script type="text/javascript" src="./js/rulet.js"></script>
