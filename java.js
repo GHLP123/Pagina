@@ -105,7 +105,10 @@ var arrayFormaWindowMini = [
 		<h1>Atención</h1>
 		<p>No disponible</p>
 	</div>`,
-	``
+	`<div class="my_text_code">
+		<h1>Atención</h1>
+		<p>Opción en Desarrollo</p>
+	</div>`
 ];
 
 var arrayFanDesc = [
@@ -274,6 +277,7 @@ function eventsForWeb(valor, num, igual){
 	}
 
 	clearMasInfo();
+	addNovedadesInfo("./img/more/keqinggenshin.png","Keqing Genshin","Este nivel solo es un arte del personaje <span>Keqing</span> del juego de <span>Genshin Impact</span> donde recree su arte en Geometry Dash, con la diferencia de que esta se mueve ademas de que se adapta a los colores que tu icono lleva.<br>- Arte Animado<br>- Version: 1<br>- ID: 94089633");
 	addNovedadesInfo("./img/more/thegamefinal2.png","The Game Final 2","El nivel <span>The Game Final 2</span> se ha actualizado y los cambios son: <br>- Art de Fondo Quitado (Pixeles).<br>- Nuevo Art más HD.<br>- Animaciones en el Art.<br>- Version: 2<br>- ID: 64320874");
 }
 

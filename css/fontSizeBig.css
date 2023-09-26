@@ -97,6 +97,18 @@
 	background-color: rgba(255, 255, 255, 0.1);
 }
 
+.flotante-1{
+	width: 120px;
+	height: 120px;
+
+	top: 90vh;
+	left: 4vh;
+}
+
+.flotante h1{
+	font-size: 54px;
+}
+
 .new_spprt p{
 	font-size: 32px;
 }
