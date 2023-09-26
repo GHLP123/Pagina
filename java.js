@@ -2,6 +2,7 @@ window.addEventListener('load', function () {
 	console.log('Pagina cargada!!! Espera... ¡¿Que haces en la consola?!');
 
 	createdBoxRed();
+	redimension(2);
 
 	cerrarCodeThis();
 	cerrarDesarollo();

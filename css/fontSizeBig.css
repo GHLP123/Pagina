@@ -35,7 +35,7 @@
 }
 
 .des_img{
-	width: 67%;
+	width: 65%;
 }
 
 .img_spprt{
@@ -171,4 +171,36 @@
 
 .bar_msj{
 	height: 56px;
+}
+
+.contenedor h1{
+	font-size: 54px;
+}
+
+.contenedor p{
+	font-size: 30px;
+}
+
+.contenedor b{
+	font-size: 30px;
+}
+
+.secret p{
+	font-size: 30px;
+}
+
+.secret h1{
+	font-size: 54px;
+}
+
+.secret input{
+	font-size: 30px;
+}
+
+.secret select{
+	font-size: 30px;
+}
+
+.secret button{
+	font-size: 30px;
 }

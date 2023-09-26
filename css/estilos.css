@@ -334,19 +334,16 @@ h4{
 .contenedor h1{
 	color: white;
 	text-shadow: 1px 2px 0px black;
-	font-size: 48px;
 }
 
 .contenedor p{
 	color: white;
 	text-shadow: 1px 2px 0px black;
-	font-size: 24px;
 }
 
 .contenedor b{
 	color: gold;
 	text-shadow: 1px 2px 0px black;
-	font-size: 24px;
 	cursor: pointer;
 }
 
@@ -576,14 +573,10 @@ h4{
 
 .secret p{
 	color: white;
-
-	font-size: 24px;
 }
 
 .secret h1{
 	color: gold;
-
-	font-size: 48px;
 }
 
 .secret span{
@@ -602,8 +595,6 @@ h4{
 .secret input{
 	color: black;
 
-	font-size: 24px;
-
 	border-radius: 0px;
 	border-color: gold;
 	border-style: solid;
@@ -617,8 +608,6 @@ h4{
 
 .secret select{
 	width: 100%;
-
-	font-size: 24px;
 
 	color: aqua;
 
@@ -635,8 +624,6 @@ h4{
 
 .secret button{
 	color: black;
-
-	font-size: 24px;
 
 	cursor: pointer;
 

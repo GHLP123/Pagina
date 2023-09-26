@@ -172,3 +172,35 @@
 .bar_msj{
 	height: 32px;
 }
+
+.contenedor h1{
+	font-size: 38px;
+}
+
+.contenedor p{
+	font-size: 18px;
+}
+
+.contenedor b{
+	font-size: 18px;
+}
+
+.secret p{
+	font-size: 18px;
+}
+
+.secret h1{
+	font-size: 38px;
+}
+
+.secret input{
+	font-size: 18px;
+}
+
+.secret select{
+	font-size: 18px;
+}
+
+.secret button{
+	font-size: 18px;
+}
