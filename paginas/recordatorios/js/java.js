@@ -1,24 +1,25 @@
 window.addEventListener('load', function () {
 	console.log(Date.now() * 0.001);
 
+	loadData();
+
+	if(arrayObjetives.length > 0){
+		for(var i = 0; i <= arrayObjetives.length - 1; i++){
+			createdInTable(arrayObjetives, arrayObjetives[i].id);
+			reloadObjetive(arrayObjetives[i].id);
+		}
+	}
+
 	setInterval(function(){
 		var i = 0;
-		if(arrayObjetives.length >= 0){
+		if(arrayObjetives.length > 0){
 			arrayObjetives.forEach(function(){
 				arrayObjetives[i].time = Date.now() * 0.001;
-				funTemptTime(arrayObjetives, i);
+				funTemptTime(arrayObjetives, arrayObjetives[i].id);
 				i++;
 			});
 		}
 	}, 100);
-
-	if(arrayObjetives.length >= 0){
-		loadData();
-		createdInTable(arrayObjetives, count_id2);
-		for(var i = 0; i <= arrayObjetives.length - 1; i++){
-			reloadObjetive(arrayObjetives[i].numId, arrayObjetives[i].id);
-		}
-	}
 });
 
 // localstorange
@@ -42,6 +43,8 @@ function saveData(){
 		}
 
 		myLocalStorage.setItem(`lengthTotal`, arrayObjetives.length);
+		myLocalStorage.setItem(`dataCountId`, count_id);
+		myLocalStorage.setItem(`dataCountId2`, count_id2);
 	}
 
 }
@@ -63,14 +66,17 @@ function loadData(){
 			var temptData9 = myLocalStorage.getItem(`dataArray${i}Type`);
 			var temptData10 = Number(myLocalStorage.getItem(`dataArray${i}Multi`));
 
+			if(temptData3 == "true"){
+				temptData3 = true
+			} else {
+				temptData3 = false;
+			}
+
 			var temptObject = new myObjetiveCustom(temptData1,temptData2,temptData3,temptData4,temptData5,temptData6,temptData7,temptData8,temptData9,temptData10);
 			arrayObjetives.push(temptObject);
 
-			if(arrayObjetives[i].complete == "true"){
-				arrayObjetives[i].complete = true
-			} else {
-				arrayObjetives[i].complete = false;
-			}
+			count_id = Number(myLocalStorage.getItem("countIdData"));
+			count_id = Number(myLocalStorage.getItem("countId2Data"));
 		}
 	}
 }
@@ -123,7 +129,7 @@ var myLocalStorage = window.localStorage;
 var arrayGuadado = [];
 
 var count_id = 0;
-var count_id2 = arrayObjetives.length;
+var count_id2 = 0;
 
 crearObjetivo.addEventListener("click", function (){
 	if((nombreObj.value != "") && (nombreObj.value != 0)){
@@ -146,9 +152,6 @@ crearObjetivo.addEventListener("click", function (){
 				var temptObjetive = new myObjetiveCustom(nombreObj.value, nombreDescrip.value, false, timeDate1, timeDate2, 0, count_id, count_id2, tipeOfTime.value, reinicio.value);
 				arrayObjetives.push(temptObjetive);
 				createdInTable(arrayObjetives, count_id2);
-				saveData();
-				count_id++;
-				count_id2++;
 
 				nombreObj.value = "";
 				nombreDescrip.value = "";
@@ -163,9 +166,12 @@ function createdInTable(array, numId2){
 		<td><button onclick="verObjetivoDescrip('${array[numId2].description}')">Ver Más</button></td>
 		<td><p id="textTemptTime${array[numId2].numId}"></p></td>
 		<td><p id="temptCount${array[numId2].numId}"></p></td>
-		<td><button id="buttonListo${array[numId2].numId}" onclick="completeObjetive(${array[numId2].numId},${array[numId2].id})">▢</button></td>
+		<td><button id="buttonListo${array[numId2].numId}" onclick="completeObjetive(${array[numId2].id})">▢</button></td>
 		<td><button id="buttonDelete${array[numId2].numId}" onclick="deleteObjetive(${array[numId2].numId},${array[numId2].id})">×</button></td>
 	</tr>`);
+	saveData();
+	count_id++;
+	count_id2++;
 }
 
 function funTemptTime(array,index){
@@ -211,7 +217,7 @@ function deleteObjetive(numId2, soloId){
 		var buttonListo = document.getElementById(`buttonListo${arrayObjetives[i].numId}`);
 		arrayObjetives[i].id = i;
 		buttonDelete.setAttribute("onclick", `deleteObjetive(${arrayObjetives[i].numId}, ${arrayObjetives[i].id})`);
-		buttonListo.setAttribute("onclick", `completeObjetive(${arrayObjetives[i].numId}, ${arrayObjetives[i].id})`);
+		buttonListo.setAttribute("onclick", `completeObjetive(${arrayObjetives[i].id})`);
 	}
 
 	count_id2 = arrayObjetives.length;
@@ -219,17 +225,17 @@ function deleteObjetive(numId2, soloId){
 	//console.log(arrayObjetives);
 }
 
-function reloadObjetive(numId2, soloId){
+function reloadObjetive(soloId){
 	var buttonListo = document.getElementById(`buttonListo${arrayObjetives[soloId].numId}`);
 
-	if(arrayObjetives[soloId].complete == false){
-		buttonListo.textContent = "▢";
-	} else {
+	if(arrayObjetives[soloId].complete == true){
 		buttonListo.textContent = "✅";
+	} else {
+		// buttonListo.textContent = "▢";
 	}
 }
 
-function completeObjetive(numId2, soloId){
+function completeObjetive(soloId){
 	var buttonListo = document.getElementById(`buttonListo${arrayObjetives[soloId].numId}`);
 
 	if(arrayObjetives[soloId].complete == false){
