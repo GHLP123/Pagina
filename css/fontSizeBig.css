@@ -105,6 +105,22 @@
 	left: 4vh;
 }
 
+.fsize-h1{
+	font-size: 54px;
+}
+
+.fsize-p{
+	font-size: 32px;
+}
+
+.fsize-btn{
+	font-size: 32px;
+}
+
+.center-title h1{
+	font-size: 54px;
+}
+
 .flotante h1{
 	font-size: 54px;
 }

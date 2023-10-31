@@ -11,6 +11,7 @@ window.addEventListener('load', function () {
 	cerrar_section();
 	cerrar_section_2();
 	cerrarPremioDisplay();
+	cerrarBarraAlter();
 
 	setInterval(function(){
 		seguidorFunction();
@@ -42,7 +43,6 @@ window.addEventListener('load', function () {
 	seguidorFunction();
 
 	desarrollador_window.style.zIndex = "2";
-	miGamesSection.style.display = "none";
 });
 
 var imagesPx = 250;
@@ -83,6 +83,11 @@ var saveDataButton = document.getElementById("saveDataButton");
 var windowMini = document.getElementById("windowMini");
 var windowCode = document.getElementById("windowCode");
 
+var alterBarSupPos = document.getElementById("alterBarSupPos");
+var backPosBackground = document.getElementById("backPosBackground");
+
+var viewUpdate = document.getElementById("viewUpdate");
+
 var dataLasticidad1 = 0;
 var dataLasticidad2 = 0;
 var dataLasticidad3 = 0;
@@ -106,10 +111,6 @@ var arrayFormaWindowMini = [
 		<h1>Atención</h1>
 		<p>No disponible</p>
 	</div>`,
-	`<div class="my_text_code">
-		<h1>Atención</h1>
-		<p>Opción en Desarrollo</p>
-	</div>`
 ];
 
 var arrayFanDesc = [
@@ -226,22 +227,22 @@ function img_copyright(){
 	texto_decriptivo.innerHTML += `<br><br>3.- [Sub 2]--> <span>¿Cómo participo y quienes pueden participar?</span>, para poder participar deberás pedirme en mi servidor de Discord que te muestre tu numero al azar lo cual mostrare captura del número que te toco. Solo podrás participar 1 vez cada semana, tu nombre lo guardare para saber que ya has participado la semana correspondiente. Las personas que pueden participar son las que están unidas al grupo de <a href="https://www.facebook.com/groups/3685990098088518" target="_black">Facebook Memes Buenardos ⇱</a> o quienes me apoyen en mis canales de YouTube como <a onclick="eventsForWeb(true, 2, false)">Redes Sociales ⩒</a>. Si no veo apoyo durante una semana en el grupo o en mis redes, anunciare anulamiento de semana que indicara una semana sin randomisador hasta que vea respuesta.`;
 }
 
-function canal_prncpl(){
-	img_canal_1();
-
+function abrir_section(){
 	seccion_open.style.display = "flex";
 	seccion_open.style.animationName = "open";
 	seccion_open.style.transform = "scale(1.0)";
 	seccion_open.style.opacity = "100%";
 }
 
+function canal_prncpl(){
+	img_canal_1();
+	abrir_section()
+}
+
 function canal_scndr(){
 	img_canal_2_1();
 
-	seccion_open.style.display = "flex";
-	seccion_open.style.animationName = "open";
-	seccion_open.style.transform = "scale(1.0)";
-	seccion_open.style.opacity = "100%";
+	abrir_section()
 }
 
 function eventsForWeb(valor, num, igual){
@@ -262,19 +263,13 @@ function eventsForWeb(valor, num, igual){
 			}
 
 			if(igual == true){
-				seccion_open.style.display = "flex";
-				seccion_open.style.animationName = "open";
-				seccion_open.style.transform = "scale(1.0)";
-				seccion_open.style.opacity = "100%";
+				abrir_section()
 			}
 		}, 200);
 	} else {
 		img_events_1();
 
-		seccion_open.style.display = "flex";
-		seccion_open.style.animationName = "open";
-		seccion_open.style.transform = "scale(1.0)";
-		seccion_open.style.opacity = "100%";
+		abrir_section()
 	}
 
 	clearMasInfo();
@@ -337,7 +332,8 @@ class redes{
 
 var contJuegos = [];
 
-var myGameNum1 = new redes("./paginas/Magic Battle G1/img/ui/ui_text_2_hd.png","Magic Battle G1","Juego de Música y Acción, lo actualizare cada que pueda, de mientras disfruta de lo que hay.","./paginas/Magic Battle G1/index.html","Jugar",false);
+// var myGameNum1 = new redes("./paginas/Magic Battle G1/img/ui/ui_text_2_hd.png","Magic Battle G1","Juego de Música y Acción, lo actualizare cada que pueda, de mientras disfruta de lo que hay.","../Magic Battle G1/index2.html","Jugar",false);
+var myGameNum1 = new redes("./paginas/recordatorios/img/note.png","Notas","Crea tus notas locales :D","./paginas/recordatorios/index.html","Ir",false);
 
 contJuegos.push(myGameNum1);
 
@@ -1374,10 +1370,33 @@ function textOfReaction(colorText, dmgOrVida, divicion, msjType, masOrMenos, ite
 	}, time);
 }
 
+function abrirBarraAlter(){
+	alterBarSupPos.style.display = "block";
+	backPosBackground.style.display = "block";
+	
+	setTimeout(function(){
+		alterBarSupPos.style.left = "0px";
+		backPosBackground.style.opacity = "100%";
+	}, 10);
+		
+}
+
+function cerrarBarraAlter(){
+	alterBarSupPos.style.left = "-100%";
+	backPosBackground.style.opacity = "0%";
+
+	setTimeout(function(){
+		backPosBackground.style.display = "none";
+		alterBarSupPos.style.display = "none";
+	}, 501);
+}
+
 
 var myBarEstado = document.getElementById("myBarEstado");
 var barCerrar1 = document.getElementById("barCerrar1");
 var barCerrar2 = document.getElementById("barCerrar2");
+var barCerrar3 = document.getElementById("barCerrar3");
+
 var barCerrarSecret = document.getElementById("barCerrarSecret");
 var myStyleSelect = document.getElementById("myStyleSelect");
 
@@ -1406,6 +1425,7 @@ function redimension(value){
 	myRespired.style.height = `${base}px`;
 	barCerrar1.style.height = `${base + 5}px`;
 	barCerrar2.style.height = `${base + 5}px`;
+	barCerrar3.style.height = `${base + 5}px`;
 	barCerrarSecret.style.height = `${base + 5}px`;
 }
 
@@ -1418,7 +1438,12 @@ saveDataButton.addEventListener("click", function(){
 		politicsSaveData = true;
 		myLocalStorage.setItem("politicsSaveDataQuestion", "yes");
 	} else if(selectOptionData.value == "denegar"){
-		politicsSaveData = false;
+		if(politicsSaveData = true){
+			localStorage.clear();
+			politicsSaveData = false;
+		} else {
+			politicsSaveData = false;
+		}
 	}
 });
 
@@ -1437,3 +1462,5 @@ function addWindowMini(array, type){
 		windowMini.innerHTML = array[type - 1];
 	}
 }
+
+viewUpdate.addEventListener("click", function(){});

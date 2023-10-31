@@ -28,7 +28,10 @@ main{
 }
 
 iframe{
-	margin: 10px;
+	overflow: hidden;
+
+	margin: 0px;
+	padding: 0px;
 }
 
 h4{
@@ -57,6 +60,40 @@ h4{
 	background-color: white;
 }
 
+.center-title{
+	width: 100%;
+
+	color: white;
+	text-shadow: 0px 0px 10px black;
+
+	display: flex;
+	justify-content: center;
+
+	margin-top: 20px;
+	padding: 4px;
+
+	background: linear-gradient(45deg, rgba(200, 200, 200, 0), rgba(250, 250, 250, 0.2), rgba(200, 200, 200, 0));
+}
+
+.dos-col{
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+}
+
+.center_img_2{
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.center_img_2 img{
+	width: 100%;
+}
+
 .flotante{
 	position: fixed;
 
@@ -67,6 +104,8 @@ h4{
 	border-radius: 12px;
 
 	cursor: pointer;
+
+	z-index: 1;
 }
 
 .center_all_y{
@@ -227,6 +266,7 @@ h4{
 
 .spprt_info_2{
 	width: 100%;
+	height: 100%;
 
 	background-color: rgba(0, 0, 0, 0.2);
 
@@ -369,25 +409,18 @@ h4{
 	color: white;
 }
 
-.copyright button{
-	cursor: pointer;
-
-	color: black;
-
-	margin: 0px 10px;
-
-	background-color: white;
-
-	border-radius: 0px;
-	border-color: gold;
-	border-style: solid;
-	border-width: 2px;
+.fcolor-1{
+	color: white;
 }
 
-.copyright select{
+.fcolor-2{
+	color: gold;
+}
+
+.select-personal{
 	color: gold;
 
-	padding: 0px 8px;
+	padding: 4px;
 
 	text-align: center;
 
@@ -397,6 +430,10 @@ h4{
 	border-color: gold;
 	border-style: solid;
 	border-width: 2px;
+}
+
+.w-100{
+	width: 100%;
 }
 
 .copyright a{
@@ -817,11 +854,93 @@ h4{
 	height: 90%;
 }
 
+.fondo-super{
+	width: 100%;
+	height: 100%;
+
+	transition: 0.5s;
+
+	position: fixed;
+
+	top: 0px;
+	left: 0px;
+
+	z-index: 2;
+
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.barra_alter{
+	width: 35%;
+	height: 100%;
+
+	transition: 0.5s;
+
+	position: fixed;
+
+	top: 0px;
+	left: 0px;
+
+	z-index: 3;
+
+	background-color: rgba(30, 30, 30, 1);
+}
+
+.btn-personal{
+	color: black;
+
+	border-radius: 0px;
+	border-color: gold;
+	border-style: solid;
+	border-width: 2px;
+
+	margin: 4px;
+	padding: 2px 4px;
+
+	cursor: pointer;
+
+	background-color: white;
+}
+
+.comic-container{
+	width: calc(100% - 4px);
+
+	margin: 4px;
+	padding: 4px;
+
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: start;
+
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.text-c{
+	text-align: center;
+}
+
+.image-div-3{
+	width: 30%;
+
+	margin: 0px 1.5% 4px 1.5%;
+}
+
 
 
 @media(max-width: 1000px){
 	body{
 		width: 1000px;
+	}
+
+	.dos-col{
+		width: 100%;
+
+		flex-wrap: wrap;
+	}
+
+	.barra_alter{
+		width: 80%;
 	}
 }
 
