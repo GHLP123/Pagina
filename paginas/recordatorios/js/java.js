@@ -1,5 +1,5 @@
 window.addEventListener('load', function () {
-	console.log(Date.now() * 0.001);
+	//console.log(Date.now() * 0.001);
 
 	loadData();
 
@@ -210,7 +210,7 @@ function funTemptTime(array,index){
 function deleteObjetive(numId2, soloId){
 	var removeData = document.getElementById(`data${arrayObjetives[soloId].numId}`);
 	removeData.remove(this);
-	arrayObjetives.splice(arrayObjetives[soloId].id, 1);
+	arrayObjetives = arrayObjetives.filter(arrayObjetives => arrayObjetives.id == soloId);
 
 	for(var i = 0; i <= arrayObjetives.length - 1; i++){
 		var buttonDelete = document.getElementById(`buttonDelete${arrayObjetives[i].numId}`);
@@ -265,12 +265,18 @@ function reloadMyObjetiveTime(array,numId){
 		timeDate2 = (Date.now() + (array[numId].multi * 60000)) * 0.001;
 	}
 
-	array[numId].time = timeDate1;
-	array[numId].timeNext = timeDate2;
-
 	if(array[numId].complete == true){
 		completeObjetive(array[numId].numId, array[numId].id);
 		array[numId].count += 1;
+	}
+
+	if(array[numId].time <= array[numId].timeNext && array[numId].time >= 0){
+		array[numId].time = timeDate1;
+		array[numId].timeNext = timeDate2;
+	} else {
+		array[numId].time = array[numId].time + Number((Date.now() * 0.001) - array[numId].timeNext);
+		array[numId].timeNext = timeDate2 - Number((Date.now() * 0.001) - array[numId].timeNext);
+		console.log(array[numId].time);
 	}
 
 	saveData();

@@ -17,10 +17,12 @@ a{
 	color: #F7EE51;
 	transition: 0.2s;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 a:hover{
 	color: white;
+	text-decoration: underline;
 }
 
 main{
@@ -28,7 +30,11 @@ main{
 }
 
 iframe{
-	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	border: none;
+
+	background-color: white;
 
 	margin: 0px;
 	padding: 0px;
@@ -952,14 +958,14 @@ h4{
 
 	100%{
 		opacity: 0%;
-		transform: scale(0.5);
+		transform: scale(1.2);
 	}
 }
 
 @keyframes open{
 	0%{
 		opacity: 0%;
-		transform: scale(0.5);
+		transform: scale(1.2);
 	}
 
 	100%{

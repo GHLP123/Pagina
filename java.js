@@ -12,6 +12,7 @@ window.addEventListener('load', function () {
 	cerrar_section_2();
 	cerrarPremioDisplay();
 	cerrarBarraAlter();
+	closeView('viewAlter', false);
 
 	setInterval(function(){
 		seguidorFunction();
@@ -19,7 +20,7 @@ window.addEventListener('load', function () {
 
 	if(myLocalStorage.getItem("politicsSaveDataQuestion") == "no"){
 		selectOptionData.value = "denegar";
-		myLocalStorage.clear();
+		clearLocalData();
 	} else if(myLocalStorage.getItem("politicsSaveDataQuestion") == "yes"){
 		selectOptionData.value = "aceptar";
 		politicsSaveData = true;
@@ -87,6 +88,7 @@ var alterBarSupPos = document.getElementById("alterBarSupPos");
 var backPosBackground = document.getElementById("backPosBackground");
 
 var viewUpdate = document.getElementById("viewUpdate");
+var pagesView = document.getElementById("pagesView");
 
 var dataLasticidad1 = 0;
 var dataLasticidad2 = 0;
@@ -106,6 +108,9 @@ var arrayFormaWindowMini = [
 		<p>- Tamaño de Interfaz</p>
 		<br>
 		<p><b>2.- Código De Seguridad</b></p>
+		<p>...</p>
+		<p><b><span>Importante:</span></b></p>
+		<p>La página tiene que guardar de manera forzada algunos datos para su correcto funcionamiento, puedes consultarlos en <span><a>Ver Actualizaciones ⩒</a></span></p>
 	</div>`,
 	`<div class="my_text_code">
 		<h1>Atención</h1>
@@ -119,6 +124,39 @@ var arrayFanDesc = [
 		<p>Gracias amigo por el dibujo :)</p>
 	</div>`
 ];
+
+var arrayDataClear = [
+	"politicsSaveDataQuestion",
+	"dimension",
+	"myCodeTrue"
+];
+
+var arrayPaginasIntegradas = [
+	"./vista/view_update/view.html"
+];
+
+function iframeSection(id, questionNum){
+	pagesView.setAttribute("src", `${arrayPaginasIntegradas[questionNum - 1]}`);
+}
+
+function closeView(viewQuestion, type){
+	var view = document.getElementById(`${viewQuestion}`);
+
+	if(type == true){
+		view.style.display = "flex";
+		view.style.animationName = "open";
+		view.style.transform = "scale(1.0)";
+		view.style.opacity = "100%";
+	} else if(type == false){
+		view.style.animationName = "back";
+		view.style.transform = "scale(1.5)";
+		view.style.opacity = "0%";
+
+		setTimeout(function(){
+			view.style.display = "none";
+		}, 150);
+	}
+}
 
 function generarImgSection1(valor){
 	if(valor == true){
@@ -236,13 +274,13 @@ function abrir_section(){
 
 function canal_prncpl(){
 	img_canal_1();
-	abrir_section()
+	abrir_section();
 }
 
 function canal_scndr(){
 	img_canal_2_1();
 
-	abrir_section()
+	abrir_section();
 }
 
 function eventsForWeb(valor, num, igual){
@@ -263,13 +301,13 @@ function eventsForWeb(valor, num, igual){
 			}
 
 			if(igual == true){
-				abrir_section()
+				abrir_section();
 			}
 		}, 200);
 	} else {
 		img_events_1();
 
-		abrir_section()
+		abrir_section();
 	}
 
 	clearMasInfo();
@@ -279,12 +317,11 @@ function eventsForWeb(valor, num, igual){
 
 function cerrar_section(valor){
 	if(valor == true){
-
 		img_close.setAttribute("onclick", "cerrar_section()");
 		img_close_2.setAttribute("onclick", "cerrar_section_2(false)");
 
 		seccion_open.style.animationName = "back";
-		seccion_open.style.transform = "scale(0.5)";
+		seccion_open.style.transform = "scale(1.5)";
 		seccion_open.style.opacity = "0%";
 
 		setTimeout(function(){
@@ -299,7 +336,7 @@ function cerrar_section(valor){
 		img_close_2.setAttribute("onclick", "cerrar_section_2(false)");
 
 		seccion_open.style.animationName = "back";
-		seccion_open.style.transform = "scale(0.5)";
+		seccion_open.style.transform = "scale(1.5)";
 		seccion_open.style.opacity = "0%";
 
 		setTimeout(function(){
@@ -341,7 +378,7 @@ contJuegos.push(myGameNum1);
 
 var redNum1 = new redes("./img/redes/instagram.png","Instagram","Actividad: Nada XD","https://www.instagram.com/ghlp2258/","Ir a mi Instagram",false);
 var redNum2 = new redes("./img/redes/facebook.png","Facebook","Actividad: Moderada","https://www.facebook.com/Ghlp123-114885247082596/","Ir a mi Facebook",false);
-var redNum3 = new redes("./img/redes/twitter.png","Twitter","Actividad: Casi Nada XD","https://twitter.com/Guiller68818386","Ir a mi Twitter",false);
+var redNum3 = new redes("./img/redes/twitter.png","Twitter","Actividad: Moderada","https://twitter.com/Guiller68818386","Ir a mi Twitter",false);
 var redNum4 = new redes("./img/redes/tiktok.png","TikTok","Actividad: Nada XD","https://www.tiktok.com/@ghlp2258","Ir a mi TikTok",false);
 var redNum5 = new redes("./img/redes/hoyolab.png","Hoyolab","Actividad: Nada XD","https://www.hoyolab.com/accountCenter/postList?id=34855496","Ir a mi Perfil de Hoyolab",false);
 
@@ -444,7 +481,7 @@ function cerrar_section_2(valor){
 
 	if(valor == true){
 		ventana_emergente_2.style.animationName = "back";
-		ventana_emergente_2.style.transform = "scale(0.5)";
+		ventana_emergente_2.style.transform = "scale(1.5)";
 		ventana_emergente_2.style.opacity = "0%";
 
 		setTimeout(function(){
@@ -454,7 +491,7 @@ function cerrar_section_2(valor){
 		}, 150);
 	} else {
 		ventana_emergente_2.style.animationName = "back";
-		ventana_emergente_2.style.transform = "scale(0.5)";
+		ventana_emergente_2.style.transform = "scale(1.5)";
 		ventana_emergente_2.style.opacity = "0%";
 
 		setTimeout(function(){
@@ -478,7 +515,7 @@ function abrirDesarrollo(array, type){
 
 function cerrarDesarollo(){
 	desarrollador_window.style.animationName = "back";
-	desarrollador_window.style.transform = "scale(0.5)";
+	desarrollador_window.style.transform = "scale(1.5)";
 	desarrollador_window.style.opacity = "0%";
 	windowMini.innerHTML = "";
 
@@ -503,7 +540,7 @@ function abrirPremioDisplay(){
 
 function cerrarPremioDisplay(){
 	premioDisplay.style.animationName = "back";
-	premioDisplay.style.transform = "scale(0.5)";
+	premioDisplay.style.transform = "scale(1.5)";
 	premioDisplay.style.opacity = "0%";
 
 	setTimeout(function(){
@@ -698,7 +735,7 @@ function abrirCodeThis(){
 
 function cerrarCodeThis(){
 	mySecretSection.style.animationName = "back";
-	mySecretSection.style.transform = "scale(0.5)";
+	mySecretSection.style.transform = "scale(1.5)";
 	mySecretSection.style.opacity = "0%";
 
 	setTimeout(function(){
@@ -1396,6 +1433,7 @@ var myBarEstado = document.getElementById("myBarEstado");
 var barCerrar1 = document.getElementById("barCerrar1");
 var barCerrar2 = document.getElementById("barCerrar2");
 var barCerrar3 = document.getElementById("barCerrar3");
+var barCerrar4 = document.getElementById("barCerrar4");
 
 var barCerrarSecret = document.getElementById("barCerrarSecret");
 var myStyleSelect = document.getElementById("myStyleSelect");
@@ -1426,11 +1464,12 @@ function redimension(value){
 	barCerrar1.style.height = `${base + 5}px`;
 	barCerrar2.style.height = `${base + 5}px`;
 	barCerrar3.style.height = `${base + 5}px`;
+	barCerrar4.style.height = `${base + 5}px`;
 	barCerrarSecret.style.height = `${base + 5}px`;
 }
 
 restoreData.addEventListener("click", function(){
-	myLocalStorage.clear();
+	clearLocalData();
 });
 
 saveDataButton.addEventListener("click", function(){
@@ -1439,7 +1478,7 @@ saveDataButton.addEventListener("click", function(){
 		myLocalStorage.setItem("politicsSaveDataQuestion", "yes");
 	} else if(selectOptionData.value == "denegar"){
 		if(politicsSaveData = true){
-			localStorage.clear();
+			clearLocalData();
 			politicsSaveData = false;
 		} else {
 			politicsSaveData = false;
@@ -1463,4 +1502,12 @@ function addWindowMini(array, type){
 	}
 }
 
-viewUpdate.addEventListener("click", function(){});
+for(var i = 0; i <= arrayDataClear.length - 1; i++){
+	localStorage.setItem(`${arrayDataClear[i]}`, "");
+}
+
+viewUpdate.addEventListener("click", function(){
+	closeView('viewAlter', true);
+	iframeSection('viewAlter', 1);
+	cerrarBarraAlter();
+});
