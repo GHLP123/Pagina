@@ -20,7 +20,7 @@ window.addEventListener('load', function () {
 
 	if(myLocalStorage.getItem("politicsSaveDataQuestion") == "no"){
 		selectOptionData.value = "denegar";
-		clearLocalData();
+		//clearLocalData();
 	} else if(myLocalStorage.getItem("politicsSaveDataQuestion") == "yes"){
 		selectOptionData.value = "aceptar";
 		politicsSaveData = true;
@@ -48,7 +48,7 @@ window.addEventListener('load', function () {
 
 var imagesPx = 250;
 
-var politicsSaveData = true;
+var politicsSaveData = false;
 
 var myLocalStorage = window.localStorage;
 
@@ -1474,8 +1474,8 @@ restoreData.addEventListener("click", function(){
 
 saveDataButton.addEventListener("click", function(){
 	if(selectOptionData.value == "aceptar"){
-		politicsSaveData = true;
 		myLocalStorage.setItem("politicsSaveDataQuestion", "yes");
+		politicsSaveData = true;
 	} else if(selectOptionData.value == "denegar"){
 		if(politicsSaveData = true){
 			clearLocalData();
@@ -1502,9 +1502,12 @@ function addWindowMini(array, type){
 	}
 }
 
-for(var i = 0; i <= arrayDataClear.length - 1; i++){
-	localStorage.setItem(`${arrayDataClear[i]}`, "");
+function clearLocalData(){
+	for(var i = 0; i <= arrayDataClear.length - 1; i++){
+		localStorage.setItem(`${arrayDataClear[i]}`, "");
+	}
 }
+
 
 viewUpdate.addEventListener("click", function(){
 	closeView('viewAlter', true);

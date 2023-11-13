@@ -83,6 +83,13 @@ var arrayPositionGround = [
 
 // async
 
+var f11 = document.getElementById("f11");
+var game = document.getElementById("game");
+
+f11.addEventListener("click", function(){
+	game.requestFullscreen();
+});
+
 function fondoMetodo(id, velocity, i, array){
 	var fondo = document.getElementById(`${id}`);
 	
@@ -114,6 +121,11 @@ function gravityMetodo(obj){
 		}
 		//console.log();
 	}
+
+	// para el limite x
+	if(obj.x <= 0 + (obj.radio / 2)){
+		obj.x = obj.radio / 2;
+	}
 }
 
 function allEntityMetodo(id, entidad){
@@ -123,9 +135,9 @@ function allEntityMetodo(id, entidad){
 		if(entidad.direcion == "middle"){
 			entidad.rotacion = 0;
 		} else if(entidad.direcion == "d"){
-			entidad.rotacion += 7;
+			entidad.rotacion += 5;
 		} else if(entidad.direcion == "a"){
-			entidad.rotacion -= 7;
+			entidad.rotacion -= 5;
 		}
 	}
 
@@ -147,9 +159,50 @@ function musicaPlay(id, src){
 	music.play();
 }
 
+// Variables de Botones Tactiles
+var btnA = document.getElementById("btnA");
+var btnD = document.getElementById("btnD");
+var btnSpace = document.getElementById("btnSpace");
+var btnF = document.getElementById("btnF");
+
+// Enter touch
+btnA.addEventListener("mousedown", function(){
+	movePlayer(65);
+});
+
+btnD.addEventListener("mousedown", function(){
+	movePlayer(68);
+});
+
+btnSpace.addEventListener("mousedown", function(){
+	movePlayer(32);
+});
+
+btnF.addEventListener("mousedown", function(){
+	movePlayer(70);
+});
+
+// Fin Touch
+btnA.addEventListener("mouseup", function(){
+	moveUpPlayer(65);
+});
+
+btnD.addEventListener("mouseup", function(){
+	moveUpPlayer(68);
+});
+
+btnSpace.addEventListener("mouseup", function(){
+	moveUpPlayer(32);
+});
+
+btnF.addEventListener("mouseup", function(){
+	moveUpPlayer(70);
+});
+
+
 function atajos(){
 	var tecla = event.keyCode;
-	console.log(event.keyCode);
+	//console.log(event.keyCode);
 
 	if(lock == false){
 		// Espacio
