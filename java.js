@@ -48,7 +48,7 @@ window.addEventListener('load', function () {
 
 var imagesPx = 250;
 
-var politicsSaveData = false;
+var politicsSaveData = true;
 
 var myLocalStorage = window.localStorage;
 

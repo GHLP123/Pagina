@@ -1,0 +1,339 @@
+*{
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+}
+
+body{
+	width: 100%;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+	overflow: hidden;
+
+	background-color: white;
+}
+
+button{
+	padding: 8px;
+	cursor: pointer;
+	border-radius: 16px;
+}
+
+.main2{
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	overflow: hidden;
+}
+
+.main{
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	position: absolute;
+
+	overflow: hidden;
+}
+
+.movible{
+	height: 100%;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	position: absolute;
+}
+
+@font-face{
+	font-family: gdFont;
+	src: url(../img/fuentes/OXYGENE1.TTF);
+}
+
+@font-face{
+	font-family: gdFont2;
+	src: url(../img/fuentes/PUSAB___.otf);
+}
+
+.mb-1{
+	margin-bottom: 2px;
+}
+
+.mb-2{
+	margin-bottom: 4px;
+}
+
+.mb-3{
+	margin-bottom: 6px;
+}
+
+.mb-4{
+	margin-bottom: 8px;
+}
+
+.p-1{
+	padding: 2px;
+}
+
+.p-2{
+	padding: 4px;
+}
+
+.p-3{
+	padding: 6px;
+}
+
+.p-4{
+	padding: 8px;
+}
+
+.px-1{
+	padding: auto 2px;
+}
+
+.px-2{
+	padding: auto 4px;
+}
+
+.px-3{
+	padding: auto 6px;
+}
+
+.px-4{
+	padding: auto 8px;
+}
+
+.py-1{
+	padding: 2px auto;
+}
+
+.py-2{
+	padding: 4px auto;
+}
+
+.py-3{
+	padding: 6px auto;
+}
+
+.py-4{
+	padding: 8px auto;
+}
+
+.t4{
+	z-index: 9;
+}
+
+.t3{
+	z-index: 8;
+}
+
+.t2{
+	z-index: 7;
+}
+
+.t1{
+	z-index: 6;
+}
+
+.b1{
+	z-index: 5;
+}
+
+.b2{
+	z-index: 4;
+}
+
+.b3{
+	z-index: 3;
+}
+
+.b4{
+	z-index: 2;
+}
+
+.b5{
+	z-index: 1;
+}
+
+.center-x{
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.center-y{
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.game{
+	width: 1920px;
+	height: 1080px;
+
+	overflow: hidden;
+
+	background-color: black;
+}
+
+.fondo-position{
+	width: 1920px;
+	height: 1080px;
+
+	background-image: linear-gradient(rgba(93, 98, 255, 0.25), rgba(16, 23, 255, 0.75)), url(../img/fondo/bg_1.png);
+	background-size: 50% 100%;
+	background-repeat: repeat-x;
+
+	transition: 0.01s;
+}
+
+.piso-position{
+	top: calc(1080px - 240px);
+
+	width: 1920px;
+	height: 240px;
+
+	background-image: linear-gradient(rgba(0, 27, 255, 0.75), rgba(53, 66, 184, 0.75)), url(../img/fondo/ground_1.png);
+	background-size: 13% 100%;
+	background-repeat: repeat-x;
+
+	transition: 0.01s;
+}
+
+.container-all{
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.row{
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.col-50{
+	width: 50%;
+}
+
+/* Player */
+.player-x{
+	width: 1px;
+	height: 1px;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+	overflow: visible;
+
+	transition: 0.1s;
+}
+
+.player-y{
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/* Position */
+.absolute{
+	position: absolute;
+}
+
+.defect-xAndY{
+	top: 0px;
+	left: 0px;
+}
+
+.column{
+	display: flex;
+	flex-direction: column;
+}
+
+/* Colores */
+.color-text-logo{
+	background: linear-gradient(rgb(199, 253, 31), rgb(66, 227, 34));
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+  	-webkit-text-stroke: 6px rgba(0, 0, 0, 1.0);
+}
+
+.color-text-gold{
+	background: linear-gradient(rgb(255, 205, 0), rgb(255, 251, 0));
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+  	-webkit-text-stroke: 4px rgba(0, 0, 0, 1.0);
+}
+
+/* Button */
+.color-btn-gold{
+	background-color: rgb(66, 227, 34);
+	border-color: black;
+	border-style: solid;
+	border-width: 6px;
+}
+
+
+
+/* Fuentes */
+.fd-important-gd{
+	height: 150px;
+	font-family: gdFont;
+	font-size: 150px;
+}
+
+.fd-gd-1{
+	font-family: gdFont2;
+	font-size: 40px;
+}
+
+.fd-gd-2{
+	font-family: gdFont2;
+	font-size: 50px;
+}
+
+.fd-gd-3{
+	font-family: gdFont2;
+	font-size: 60px;
+}
+
+.fd-gd-4{
+	font-family: gdFont2;
+	font-size: 70px;
+}
+
+/* Estilos Generales */
+.main{
+	width: 100%;
+	height: 100%;
+}
+
+/* Estilos del Menu */

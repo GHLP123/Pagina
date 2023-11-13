@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./css/estilos.css">
+	<title>Episodio 1 - Epilogo</title>
+</head>
+<body>
+	<div class="game">
+
+		<!--- Todo el contexto --->
+
+		<!--- Menu Juego --->
+		<div id="menu" class="main2" style="display: block;">
+			<div class="container-all">
+				<div class="center-x t1 py-4">
+					<p class="fd-important-gd color-text-logo">EPILOGO 1</p>
+				</div>
+				<div class="row t2">
+					<div class="col-50 center-x">
+						<div class="center-y column">
+							<button id="comenzar" class="fd-gd-4 color-btn-gold mb-4" style="width: 450px;"><p class="color-text-gold">COMENZAR</p></button>
+							<button class="fd-gd-4 color-btn-gold mb-4" style="width: 450px;"><p class="color-text-gold">OPCIONES</p></button>
+							<button class="fd-gd-4 color-btn-gold mb-4" style="width: 450px;"><p class="color-text-gold">CREDITOS</p></button>
+							<button class="fd-gd-4 color-btn-gold" style="width: 450px;"><p class="color-text-gold">BORRAR</p></button>
+						</div>
+					</div>
+					<div class="col-50"></div>
+				</div>
+				<div id="floor-menu" class="piso-position absolute t1"></div>
+			</div>
+			<div id="bg-menu" style="top: 0px;" class="fondo-position absolute b1"></div>
+		</div>
+
+		<!--- El Vacio --->
+		<div style="display: none;" id="vacio" class="main"></div>
+
+		<!--- Principal --->
+		<div style="display: none;" id="principal" class="main">
+			<div id="move" class="movible">
+				<div id="player" class="player-x absolute t1">
+					<div class="player-y">
+						<img src="" id="skinPlayer" width="100px">
+					</div>
+				</div>
+			</div>
+			
+			<div id="bg-game" class="fondo-position absolute b5"></div>
+			<div id="floor-game" class="piso-position absolute t3"></div>
+
+			<div class="absolute t4" style="top: 900px; left: 140px;">
+				<button class="fd-gd-4 color-btn-gold" style="width: 220px; height: 130px;"><p class="color-text-gold"><</p></button>
+				<button class="fd-gd-4 color-btn-gold" style="width: 220px; height: 130px;"><p class="color-text-gold">></p></button>
+			</div>
+			<div class="absolute t4" style="top: 900px; left: 1400px;">
+				<button class="fd-gd-4 color-btn-gold" style="width: 150px; height: 130px;"><p class="color-text-gold">F</p></button>
+				<button class="fd-gd-4 color-btn-gold" style="width: 220px; height: 130px;"><p class="color-text-gold">JUMP</p></button>
+			</div>
+		</div>
+
+		<!--- World --->
+		<div style="display: none;" id="world" class="main"></div>
+
+		<div style="display: none; top: 0px; left: 0px;" id="colorCinematic" class="main t4"></div>
+		
+		<audio id="musicPlay" src="" loop></audio>
+	</div>
+</body>
+<script type="text/javascript" src="./js/java.js"></script>
+<script type="text/javascript" src="./js/lvl_1.js"></script>
+</html>
