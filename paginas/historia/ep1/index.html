@@ -4,10 +4,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./css/estilos.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 	<title>Episodio 1 - Epilogo</title>
 </head>
-<body>
-	<div class="game" id="game">
+<body id="game">
+	<div class="game">
 
 		<!--- Todo el contexto --->
 
@@ -32,13 +33,14 @@
 				<div id="floor-menu" class="piso-position absolute t1"></div>
 			</div>
 			<div id="bg-menu" style="top: 0px;" class="fondo-position absolute b1"></div>
+			
+			<!--- El Vacio --->
+			<div style="display: none;" id="vacio" class="main"></div>
 		</div>
 
-		<!--- El Vacio --->
-		<div style="display: none;" id="vacio" class="main"></div>
 
 		<!--- Principal --->
-		<div style="display: none;" id="principal" class="main">
+		<div style="display: none; transition: all 5s ease 0s; opacity: 1;" id="principal" class="main3 absolute">
 			<div id="move" class="movible">
 				<div id="player" class="player-x absolute t1">
 					<div class="player-y">
@@ -58,22 +60,51 @@
 				<button id="btnF" class="fd-gd-4 color-btn-gold" style="width: 150px; height: 130px;"><p class="color-text-gold">F</p></button>
 				<button id="btnSpace" class="fd-gd-4 color-btn-gold" style="width: 220px; height: 130px;"><p class="color-text-gold">JUMP</p></button>
 			</div>
+			<div id="revivirCircle" class="player-x absolute t2" style="top: 790px; left: 400px; opacity: 0;">
+				<div class="player-y">
+					<div class="bola-revivir">
+						<div class="bola-revivir"></div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<!--- World --->
 		<div style="display: none;" id="world" class="main"></div>
 
-		<div style="display: none; top: 0px; left: 0px;" id="colorCinematic" class="main t4"></div>
+		<div style="display: none; top: 0px; left: 0px;" id="colorCinematic" class="main absolute t4"></div>
 		
 		<audio id="musicPlay" src="" loop></audio>
+
+		<!--- Dialogos --->
+		<div style="display: none; top: 0px;" id="dialogos" class="main3 t5">
+			<div class="barra-dialog">
+				<div class="support-dialg">
+					<div class="dialg-div1">
+						<div class="dialg-img">
+							<img src="./img/icon/defect.png" id="dialogImage">
+						</div>
+						<div class="dialg-info">
+							<p class="fd-gd-3 color-text-gold" id="dialogName">$Name?</p>
+							<p class="fd-gd-1 color-text-white" id="dialogText">$textDialog?</p>
+						</div>
+					</div>
+					<div class="dialg-div2">
+						<button id="siguienteDialog" class="fd-gd-1 color-btn-gold" style="height: 100px;"><p class="color-text-gold">Siguiente<p></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Text -->
+		<div class="text-gen t5" id="textGenerate">
+		</div>
 	</div>
-	<div class="center-x">
-		<p class="fd-important-gd color-text-logo">EN FAZE DE PRUEBAS</p>
-	</div>
-	<div class="center-x">
-		<p class="fd-important-gd color-text-logo">GHLP123</p>
+
+	<div id="script">
+		<script type="text/javascript" src="./js/java.js"></script>
+		<script type="text/javascript" src="./js/lvl_1.js"></script>
+		<script type="text/javascript" src="./js/lvl_2.js"></script>
 	</div>
 </body>
-<script type="text/javascript" src="./js/java.js"></script>
-<script type="text/javascript" src="./js/lvl_1.js"></script>
 </html>

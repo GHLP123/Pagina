@@ -1,0 +1,48 @@
+{
+	"nombres": [
+		"???",
+		"Voz Desconocida",
+		""
+	],
+
+	"dialogos": {
+		"dialogo": [
+			["Todo Comenzo en la nada", "", 0, 50],
+			["sin luz y en completa obscuridad", "", 0, 50],
+			["ningun rastro de Vida...", "", 0, 50],
+			["solo eso...", "", 0, 100],
+			["...", "", 0, 200],
+			["despierta...porfavor...", "", 1, 100],
+			["Un rayo de luz... De ¿Esperanza?", "", 0, 60],
+			["¡No es posible!", "", 0, 20],
+			["¡¡No debe pasar esto!! *desesperación*", "", 0, 20],
+			["Ohh...", "", 0, 60],
+			["Solo era eso", "", 0, 60],
+			["es, vida...", "", 0, 60],
+			["¿No?", "", 0, 60],
+			["entonces por eso la luz", "", 0, 60],
+			["Mmmm...", "", 0, 50],
+			["Bueno, no esta mal", "", 0, 50],
+			["(supongo)", "", 0, 60],
+			["...", "", 0, 100],
+			["Entonces", "", 0, 50],
+			["una forma de vida", "", 0, 50],
+			["de luz y esperanza nacia", "", 0, 50],
+			["que hermoso!", "", 0, 50],
+			["La vida puede adaptar cualquier tipo de formas", "", 0, 50],
+			["nuestro amiguito vagaba solo por el mundo", "", 0, 50],
+			["en completa obscuridad, no habia nada", "", 0, 50],
+			["más que él y la obscuridad misma.", "", 0, 50],
+			["(uhm... un poco de fallas... ¿por qué será?)", "", 0, 50],
+			["(lo bueno es que no ha pasado nada...)", "", 0, 50],
+			["Y así", "", 0, 50],
+			["paso toda su vid... ¿QUÉ?", "", 0, 50],
+			["Eh... *pena de equivocación*", "", 0, 50],
+			["y así, en su corta existencia, logro captar un rayo de luz reflejado en otra entidad... Uhmm...", "", 0, 50],
+			["o más bien un objeto", "", 0, 50],
+			["y con ello, este mundo mejoraría gracias a él *felicidad*", "", 0, 50],
+			["(supongo que esta bien... ¿no?)", "", 0, 50],
+			["!terminado", "", 0, 50]
+		]
+	}
+}

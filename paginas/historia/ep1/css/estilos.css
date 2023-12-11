@@ -12,15 +12,20 @@ body{
 	justify-content: center;
 	flex-wrap: wrap;
 
-	overflow: hidden;
+	overflow-x: hidden;
 
-	background-color: white;
+	background-color: black;
 }
 
 button{
 	padding: 8px;
 	cursor: pointer;
 	border-radius: 16px;
+}
+
+.main{
+	width: 100%;
+	height: 100%;
 }
 
 .main2{
@@ -34,9 +39,9 @@ button{
 	overflow: hidden;
 }
 
-.main{
-	width: 100%;
-	height: 100%;
+.main3{
+	width: 1920px;
+	height: 1080px;
 
 	display: flex;
 	flex-direction: row;
@@ -48,12 +53,6 @@ button{
 }
 
 .movible{
-	height: 100%;
-
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-
 	position: absolute;
 }
 
@@ -129,6 +128,10 @@ button{
 
 .py-4{
 	padding: 8px auto;
+}
+
+.t5{
+	z-index: 9;
 }
 
 .t4{
@@ -241,6 +244,74 @@ button{
 	width: 50%;
 }
 
+.barra-dialog{
+	width: 1920px;
+	height: 1080px;
+}
+
+.support-dialg{
+	width: 100%;
+	height: 240px;
+
+	padding: 10px;
+
+	display: flex;
+	flex-direction: row;
+
+	position: absolute;
+
+	top: 840px;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dialg-div1{
+	width: 80%;
+
+	display: flex;
+	flex-direction: row;
+}
+
+.dialg-div2{
+	width: 20%;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.dialg-img{
+	width: 10%;
+}
+
+.dialg-img img{
+	width: 100%;
+	padding: 10px;
+
+	border-radius: 6px;
+
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dialg-info{
+	width: 90%;
+	padding: 10px 20px;
+}
+
+.text-gen{
+	width: 1px;
+	height: 1px;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	top: 540px;
+	left: 960px;
+
+	position: absolute;
+}
+
 /* Player */
 .player-x{
 	width: 1px;
@@ -261,6 +332,15 @@ button{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+
+.bola-revivir{
+	width: 200px;
+	height: 200px;
+
+	border-radius: 99px;
+
+	background-color: rgba(255, 255, 255, 0.8);
 }
 
 /* Position */
@@ -287,10 +367,17 @@ button{
 }
 
 .color-text-gold{
-	background: linear-gradient(rgb(255, 205, 0), rgb(255, 251, 0));
+	background: linear-gradient(rgb(255, 205, 0), rgb(245, 241, 0));
 	-webkit-background-clip: text;
   	-webkit-text-fill-color: transparent;
-  	-webkit-text-stroke: 4px rgba(0, 0, 0, 1.0);
+  	-webkit-text-stroke: 3px rgba(0, 0, 0, 1.0);
+}
+
+.color-text-white{
+	background: linear-gradient(rgb(255, 255, 255), rgb(220, 220, 220));
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+  	-webkit-text-stroke: 3px rgba(0, 0, 0, 1.0);
 }
 
 /* Button */
@@ -337,3 +424,76 @@ button{
 }
 
 /* Estilos del Menu */
+
+
+/* Keyframes */
+.text-anim-1{
+	width: 1600px;
+	text-align: center;
+	animation-name: textAnimation1;
+	animation-duration: 6s;
+	animation-direction: normal;
+	font-family: Roboto;
+	color: white;
+	font-size: 32px;
+	position: absolute;
+}
+
+.text-anim-2{
+	width: 1600px;
+	text-align: center;
+	animation-name: textAnimation2;
+	animation-duration: 6s;
+	animation-direction: normal;
+	font-family: Roboto;
+	color: white;
+	font-size: 32px;
+	position: absolute;
+}
+
+@keyframes textAnimation1{
+	0%{
+		scale: 0;
+		top: 0px;
+	}
+
+	30%{
+		scale: 1.1;
+		opacity: 100%;
+	}
+
+	70%{
+		scale: 0.9;
+		opacity: 100%;
+	}
+
+	90%{
+		scale: 0.9;
+		top: -20px;
+		opacity: 0%;
+	}
+
+	100%{
+		scale: 0;
+		top: 10px;
+		opacity: 0%;
+	}
+}
+
+@keyframes textAnimation2{
+	0%{
+		opacity: 0%;
+	}
+
+	30%{
+		opacity: 100%;
+	}
+
+	80%{
+		opacity: 100%;
+	}
+
+	100%{
+		opacity: 0%;
+	}
+}
