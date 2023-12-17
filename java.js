@@ -2,10 +2,19 @@ window.addEventListener('load', function () {
 	console.log('Pagina cargada!!! Espera... ¡¿Que haces en la consola?!');
 
 	createdBoxRed();
-	redimension(2);
+
+	if(myLocalStorage.getItem('novedad') == "true"){
+		if(adRandom(20)){
+			adRandom(100);
+		} else {
+			cerrarDesarollo();
+		}
+	} else {
+		abrirAnuncio(arrayAnuncios[1], 1);
+		myLocalStorage.setItem('novedad', "true");
+	}
 
 	cerrarCodeThis();
-	cerrarDesarollo();
 	generarImgSection2();
 	generarImgSectionNovedades();
 	cerrar_section();
@@ -18,37 +27,29 @@ window.addEventListener('load', function () {
 		seguidorFunction();
 	}, 4000);
 
-	if(myLocalStorage.getItem("politicsSaveDataQuestion") == "no"){
-		selectOptionData.value = "denegar";
-		//clearLocalData();
-	} else if(myLocalStorage.getItem("politicsSaveDataQuestion") == "yes"){
-		selectOptionData.value = "aceptar";
-		politicsSaveData = true;
-		myLocalStorage.setItem("politicsSaveDataQuestion", "yes");
-	} else if(politicsSaveData == false){
-		selectOptionData.value = "denegar";
+
+	if(myLocalStorage.getItem("dimension") >= 1){
+		redimension(myLocalStorage.getItem("dimension"));
+	} else {
+		redimension(2);
 	}
 
-	if(politicsSaveData == true){
-		if(myLocalStorage.getItem("dimension") >= 1){
-			redimension(myLocalStorage.getItem("dimension"));
-		}
-
-		if(myLocalStorage.getItem("myCodeTrue") == "true"){
-			myCodeSave = true;
-		} else {
-			myCodeSave = false;
-		}
+	if(myLocalStorage.getItem("myCodeTrue") == "true"){
+		myCodeSave = true;
+	} else {
+		myCodeSave = false;
 	}
 
 	seguidorFunction();
+
+	setTimeout(function(){
+		
+	}, 500);
 
 	desarrollador_window.style.zIndex = "2";
 });
 
 var imagesPx = 250;
-
-var politicsSaveData = false;
 
 var myLocalStorage = window.localStorage;
 
@@ -78,8 +79,6 @@ var imgInsertSection5 = document.getElementById("imgInsertSection5");
 var myIndexDes = document.getElementById("myIndexDes");
 
 var restoreData = document.getElementById("restoreData");
-var selectOptionData = document.getElementById("selectOptionData");
-var saveDataButton = document.getElementById("saveDataButton");
 
 var windowMini = document.getElementById("windowMini");
 var windowCode = document.getElementById("windowCode");
@@ -95,22 +94,61 @@ var dataLasticidad2 = 0;
 var dataLasticidad3 = 0;
 var dataLasticidadRes = 0;
 
+var arrayAnuncios = [
+	{
+		title: "titulo del anuncio",
+		subtitle: "descripción del anuncio",
+		img: "imagen del anuncio",
+		red: "red social de enlace del anuncio",
+		enlace: "enlace del anuncio"
+	},
+	{
+		title: "Google Play $100 MX",
+		subtitle: "Sorteo se activará al llegar a la meta de likes, para saber más sobre este evento puedes ir a <span>Importante ⟫ Novedades</span>",
+		img: "./img/videos/novedades/img1.png",
+		red: "!novedad",
+		enlace: ""
+	},
+	{
+		title: "Lista: Demons",
+		subtitle: "¿Estas aburrido?, Que te parece si ves esta lista de reproducción que te hice especialmente para que veas como me paso niveles díficiles, te aseguro que te gustarán ¡Ooo sí!",
+		img: "./img/anuncio/anuncioDemons.png",
+		red: "YouTube",
+		enlace: "https://www.youtube.com/watch?v=vJ4wrvbUZo8&list=PLH4wHWed0fdeOB41e1Fjr2KDFIjdK-seh&pp=gAQBiAQB"
+	},
+	{
+		title: "Grupo de Facebook",
+		subtitle: "Únete a mi Grupo de Facebook, esta medio abandonado pero XD, sube lo que quieras sin miedo (Menos NSFW, G0r3 o Cualquier cosa fuera de lugar 🔪🔪🔪).",
+		img: "./img/anuncio/grupoDeFacebook.png",
+		red: "Facebook",
+		enlace: "https://www.facebook.com/groups/3685990098088518"
+	},
+	{
+		title: "¡FORMULARIO!",
+		subtitle: "Si tienes tiempo, puedes responder algunas preguntas que tengo de interez, si las repondes me daría información para conocer a mi publico y el por que tu y más personas me miran :)",
+		img: "./img/anuncio/anuncioForm.png",
+		red: "Google Forms (Formulario).",
+		enlace: "https://forms.gle/Qxi8isP3f9w6JcF16"
+	}
+];
+
 var arrayFormaWindowMini = [
 	`<div class="my_text_code">
 		<h1>Información</h1>
-		<p>Cosas que la página guardará si activas <span>Guardar datos de Opciones</span> en <span>Siempre</span></p>
-		<p>No olvides darle a <span>guardar</span> si cambias esta configuración.</p>
-		<p>Eso es todo lo que actualmente guarda la página si esta en <span>Siempre</span>.</p>
+		<p>Esta Página <span>Guardará:</span></p>
 		<p>...</p>
-		<p><b><span>Esta página guardará:</span></b></p>
 		<p><b>1.- Ajustar</b></p>
 		<p>- Tamaño de Letras</p>
 		<p>- Tamaño de Interfaz</p>
 		<br>
 		<p><b>2.- Código De Seguridad</b></p>
+		<br>
+		<p><b>3.- Probabilidad de Anuncios</b></p>
+		<p>- Eventos (Solo aparece una Vez)</p>
+		<p>- Recomendaciones (Anuncios por Defecto)</p>
 		<p>...</p>
 		<p><b><span>Importante:</span></b></p>
-		<p>La página tiene que guardar de manera forzada algunos datos para su correcto funcionamiento, puedes consultarlos en <span><a>Ver Actualizaciones ⩒</a></span></p>
+		<p>La página tiene que guardar de manera forzada algunos datos para su correcto funcionamiento, puedes consultarlos en <span><a onclick="iframeSection('viewAlter', 1);closeView('viewAlter', true);cerrarDesarollo()">Ver Actualizaciones ⩒</a></span></p>
 	</div>`,
 	`<div class="my_text_code">
 		<h1>Atención</h1>
@@ -118,15 +156,7 @@ var arrayFormaWindowMini = [
 	</div>`,
 ];
 
-var arrayFanDesc = [
-	`<div class="my_text_code">
-		<h1>Nota</h1>
-		<p>Gracias amigo por el dibujo :)</p>
-	</div>`
-];
-
 var arrayDataClear = [
-	"politicsSaveDataQuestion",
 	"dimension",
 	"myCodeTrue"
 ];
@@ -134,6 +164,21 @@ var arrayDataClear = [
 var arrayPaginasIntegradas = [
 	"./vista/view_update/view.html"
 ];
+
+function adRandom(prob){
+	var arrayTempt = arrayAnuncios.filter((element) => arrayAnuncios.red != "!novedad");
+	var randomTempt = Math.floor(Math.random() * arrayTempt.length);
+	var randomWindowTempt = Math.floor(Math.random() * 100 + 1);
+
+	if(randomWindowTempt <= prob){
+		if(randomTempt != 0 && arrayTempt[randomTempt].red != "!novedad"){
+			abrirAnuncio(arrayTempt[randomTempt], 1);
+			return true;
+		}
+	} else {
+		return false;
+	}
+}
 
 function iframeSection(id, questionNum){
 	pagesView.setAttribute("src", `${arrayPaginasIntegradas[questionNum - 1]}`);
@@ -246,11 +291,8 @@ function img_copyright(){
 	imagen_cambio.setAttribute("src", "img/recursos/copyright_500.png");
 	enlaceCambiar.style.display = "none";
 
-	texto_decriptivo.innerHTML = "<h1>Interno</h1>"
 	texto_decriptivo.innerHTML += "1.- Esta web no recopilara datos de ninguna funte externa. Solo se creó con el fin de auto publicidad para GHLP123 && GHLP123GAMES, esta web solo guardara datos locales que incluyen la configuración esta misma para su correcto funcionamiento, por el momento no te perdira accesos a cuentas, algo a recalcar es que esta página está alojada el GitHub lo cual es un <span>«Repositorio»</span> seguro.";
 	texto_decriptivo.innerHTML += "<br><br>2.- Las redes sociales que aparecen ahí son totalmente mías, hay algunas que faltan pero lo más probable es que estén en el canal ya sea el 1ro o el 2do, si ves una cuenta sospechosa haciéndose pasar por mí, puedes enviarme un Gmail al correo: <span>alternative2258@gmail.com</span> me ayudaría mucho saber tal información.";
-	texto_decriptivo.innerHTML += "<br><br>3.- A partir de la actualizacion <span>1.7.0</span> de la página, esta puede guardar un dato de manera <span>local</span> que es el <span>código de seguridad</span>, para evitar ponerlo siempre que entras, así, solo se requiere ponerlo 1 vez en tu dispositivo.";
-	texto_decriptivo.innerHTML += "<br><br>4.- A partir de la actualizacion <span>1.8.0</span> de la página, esta guardara datos acerca de la dimension en que la página trabaja para evitar la incomodidad al navegar. El tamaño y las letras, el estilo y la forma de acomodar se guardaran de manera local en el dispositivo.";
 
 	texto_decriptivo.innerHTML += "<h1>Externo</h1>";
 	texto_decriptivo.innerHTML += "1.- Esta página solo podrá promocionar a alguien que a <span>GHLP123</span> && <span>GHLP123GAMES</span> le hayan autorizado.";
@@ -503,7 +545,7 @@ function cerrar_section_2(valor){
 
 var desarrollador_window = document.getElementById("desarrollador_window");
 
-function abrirDesarrollo(array, type){
+function abrirDesarrollo(array, type, fun){
 	desarrollador_window.display = "block";
 
 	desarrollador_window.style.display = "flex";
@@ -511,6 +553,20 @@ function abrirDesarrollo(array, type){
 	desarrollador_window.style.transform = "scale(1.0)";
 	desarrollador_window.style.opacity = "100%";
 	addWindowMini(array, type);
+
+	if(fun != null || undefined || ""){
+		fun();
+	}
+}
+
+function abrirAnuncio(arrayElement, type){
+	desarrollador_window.display = "block";
+
+	desarrollador_window.style.display = "flex";
+	desarrollador_window.style.animationName = "open";
+	desarrollador_window.style.transform = "scale(1.0)";
+	desarrollador_window.style.opacity = "100%";
+	addWindowAd(arrayElement, type);
 }
 
 function cerrarDesarollo(){
@@ -555,10 +611,7 @@ function validarCodigo(){
 		cerrarDesarollo();
 		abrirCodeThis();
 		myCodeSave = true;
-
-		if(politicsSaveData == true){
-			myLocalStorage.setItem("myCodeTrue", myCodeSave);
-		}
+		myLocalStorage.setItem("myCodeTrue", myCodeSave);
 	}
 }
 
@@ -568,10 +621,11 @@ function validarCodigo(){
 var myRespired = document.getElementById("myRespired");
 
 class fanCustom{
-	constructor(nombre, num, enlace, img, descrip){
+	constructor(nombre, num, enlace, text, img, descrip){
 		this.nombre = nombre;
 		this.num = num;
 		this.enlace = enlace;
+		this.text = text;
 		this.img = img;
 		this.descrip = descrip;
 	}
@@ -580,10 +634,10 @@ class fanCustom{
 var arrayMyFan = [];
 var indexMyFan = 1;
 
-var seguidorNum0 = new fanCustom("myNombre", 0, "enlace", "./imagen.ruta","descripción");
-var seguidorNum1 = new fanCustom("Arte", 1, "https://twitter.com/Abxy_XL/status/1471946809798848513/photo/1", "./img/fan/myImgFan1.png", "Abxy");
-var seguidorNum2 = new fanCustom("Arte", 2, "https://www.facebook.com/profile.php?id=100057388123892", "./img/fan/myImgFan2.png", "Emma Zerep II");
-var seguidorNum3 = new fanCustom("Arte", 3, 1, "./img/fan/myImgFan3.png", "Gael");
+var seguidorNum0 = new fanCustom("myNombre", 0, "enlace", "mensaje", "./imagen.ruta","descripción");
+var seguidorNum1 = new fanCustom("Arte", 1, "https://twitter.com/Abxy_XL/status/1471946809798848513/photo/1", "Gracias Abxy por el dibujo!", "./img/fan/myImgFan1.png", "Abxy");
+var seguidorNum2 = new fanCustom("Arte", 2, "https://www.facebook.com/profile.php?id=100057388123892", "Gracias Emma por el dibujo!", "./img/fan/myImgFan2.png", "Emma Zerep II");
+var seguidorNum3 = new fanCustom("Arte", 3, "", "Gracias amigo por el dibujo :)", "./img/fan/myImgFan3.png", "Gael");
 
 
 var myEnlaceFan = document.getElementById("myEnlaceFan");
@@ -592,23 +646,15 @@ var addMyImgFan = document.getElementById("addMyImgFan");
 
 arrayMyFan.push(seguidorNum0,seguidorNum1,seguidorNum2,seguidorNum3);
 
-function setCreated(id,title,text,enlace,img){
-	var temptEnlace = "";
-
-	if(enlace >= 1){
-		temptEnlace = `<a onclick="abrirDesarrollo(1, ${enlace})">Nota ⩒</a>`;
-	} else {
-		temptEnlace = `<a target="_black" href="${enlace}">Ir a la publicación ⇱</a>`;
-	}
-
+function setCreated(id, array, i){
 	id.innerHTML += `<div class="img_spprt_2">
 						<div class="box_img">
-							<img src="${img}">
+							<img src="${array[i].img}">
 						</div>
 						<div class="box_text">
-							<h1>${title}</h1>
-							<p>${text}</p>
-							${temptEnlace}
+							<h1>${array[i].nombre}</h1>
+							<p>${array[i].descrip}</p>
+							<a onclick="abrirAnuncio(arrayMyFan[${i}], 2)">Nota ⩒</a>
 						</div>
 					</div>`;
 }
@@ -617,7 +663,7 @@ function createdPublicPost(){
 	createdAllRed.innerHTML = "";
 
 	for(var i = 1; i <= arrayMyFan.length - 1; i++){
-		setCreated(createdAllRed, arrayMyFan[i].nombre, arrayMyFan[i].descrip, arrayMyFan[i].enlace, arrayMyFan[i].img);
+		setCreated(createdAllRed, arrayMyFan, i);
 	}
 }
 
@@ -1455,9 +1501,7 @@ function redimension(value){
 		imagesPx = 150;
 	}
 
-	if(politicsSaveData == true){
-		myLocalStorage.setItem("dimension", value);
-	}
+	myLocalStorage.setItem("dimension", value);
 
 	myBarEstado.style.height = `${base}px`;
 	myRespired.style.height = `${base}px`;
@@ -1472,25 +1516,9 @@ restoreData.addEventListener("click", function(){
 	clearLocalData();
 });
 
-saveDataButton.addEventListener("click", function(){
-	if(selectOptionData.value == "aceptar"){
-		myLocalStorage.setItem("politicsSaveDataQuestion", "yes");
-		politicsSaveData = true;
-	} else if(selectOptionData.value == "denegar"){
-		if(politicsSaveData = true){
-			clearLocalData();
-			politicsSaveData = false;
-		} else {
-			politicsSaveData = false;
-		}
-	}
-});
-
 function addWindowMini(array, type){
 	if(array == 0){
 		array = arrayFormaWindowMini;
-	} else if(array == 1){
-		array = arrayFanDesc;
 	}
 
 	if(type == 0){
@@ -1499,6 +1527,37 @@ function addWindowMini(array, type){
 	} else {
 		windowCode.style.display = "none";
 		windowMini.innerHTML = array[type - 1];
+	}
+}
+
+function addWindowAd(arrayElement, type){
+	if(type == 0){
+		windowCode.style.display = "block";
+		validarCodigo();
+	} else if(type == 1){
+		windowCode.style.display = "none";
+		var aUrl = "";
+		if(arrayElement.enlace != "" || undefined || null){
+			aUrl = `<a href="${arrayElement.enlace}" target="_black">Toca aquí para ir a <b>${arrayElement.red} ⇱</b></a>`;
+		}
+		windowMini.innerHTML = `<div class="my_text_code">
+		<h1>${arrayElement.title}</h1>
+		<div class="my_img_code">
+		<img src="${arrayElement.img}">
+		</div>
+		${aUrl}
+		<p>${arrayElement.subtitle}</p>
+		</div>`;
+	} else if(type == 2){
+		windowCode.style.display = "none";
+		var aUrl = "";
+		if(arrayElement.enlace != "" || undefined || null){
+			aUrl = `<a href="${arrayElement.enlace}" target="_black">Ir a la publicación ⇱</p>`;
+		}
+		windowMini.innerHTML = `<div class="my_text_code">
+		<p>${arrayElement.text}</p>
+		${aUrl}
+		</div>`;
 	}
 }
 

@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8">
-	<meta name="keywords" content="ghlp, ghlp123, gdyn, gd y noticias">
+	<meta name="keywords" content="ghlp, ghlp123, gdyn, gd y noticias, ghlp 123, ghlp2258">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Mi página personal, puedes consultar todo lo que te ofresco aquí, como información u alguna novedad :)">
 	<link rel="stylesheet" href="./css/estilos.css">
@@ -344,7 +344,7 @@
 		<p>⩓ Pendiente</p>
 		<br>
 		<p><b>Cambios / Actualizaciones / Información</b></p>
-		<p>Versión Actual: <i>2.1.2</i></p>
+		<p>Versión Actual: <i>2.2.0</i></p>
 	</div>
 
 	<div class="barra_alter" id="alterBarSupPos">
@@ -361,7 +361,7 @@
 			<div class="spprt_info_2">
 				
 				<button class="btn-personal fsize-btn" id="viewUpdate">Ver Actualizaciones. ⩒</button>
-				<button class="btn-personal fsize-btn" id="">▼ Cómic ⩓</button>
+				<button class="btn-personal fsize-btn" onclick="abrirAnuncio(arrayAnuncios[1], 1)">Evento ⩒</button>
 
 				<div class="comic-container">
 					<!---<img src="./img/more/comic/imageComic.jpg" class="image-div-3">
@@ -371,15 +371,8 @@
 				</div>
 
 				<h1 class="fsize-h1 fcolor-2 text-c">Guardar Datos</h1>
-				<p class="fsize-p fcolor-1">Activa esta función para que la página guarde tu configuración cada que entres y que no sea molesto tocar lo mismo una y otra vez. Puedes ver más a detalle los datos que guardara la página en <a onclick="abrirDesarrollo(0, 1)">Información ⩒</a></p>
-				<select id="selectOptionData" value="" class="select-personal fsize-btn">
-					<option value="aceptar">Siempre</option>
-					<option value="denegar">Nunca</option>
-				</select>
+				<p class="fsize-p fcolor-1">La Página ahora tendra que guardar siempre datos a partir de la v2.2.0 y posterior para el correcto funcionamiento de esta. Si tienes dudas de que datos guarda esta página puedes ver dando click aquí <a onclick="abrirDesarrollo(0, 1, cerrarBarraAlter())">Información ⩒</a> para saber que datos guarda esta Página. Igual puedes borrar los datos si es que lo requieres pero volverá a guardar en cuanto recarges o ingreses nuevamente.</p>
 				<div class="dos-col">
-					<div class="seccion_1">
-						<button class="btn-personal w-100 fsize-btn" id="saveDataButton">Guardar</button>
-					</div>
 					<div class="seccion_1">
 						<button class="btn-personal w-100 fsize-btn" id="restoreData">Borrar Datos</button>
 					</div>

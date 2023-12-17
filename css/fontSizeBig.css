@@ -220,3 +220,27 @@
 .secret button{
 	font-size: 30px;
 }
+
+.box_text h1{
+	font-size: 54px;
+}
+
+.box_text p{
+	font-size: 30px;
+}
+
+.box_text a{
+	font-size: 30px;
+}
+
+.my_text_code p {
+	font-size: 30px;
+}
+
+.my_text_code h1{
+	font-size: 54px;
+}
+
+.my_text_code a{
+	font-size: 35px;
+}
